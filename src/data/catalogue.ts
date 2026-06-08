@@ -1,9 +1,9 @@
-import type { Game } from '../types'
+import type { CatalogueEntry } from '../types'
 
-export const games: Game[] = [
+export const catalogueEntries: CatalogueEntry[] = [
   {
-    slug: 'catching-game',
-    name: 'Catching Game',
+    slug: 'fruit-catcher',
+    name: 'Fruit Catcher',
     difficulty: 1,
     estimatedTime: '1–2 hrs',
     description: 'Move a bowl to catch falling fruit. Learn movement and scoring.',
@@ -26,8 +26,8 @@ export const games: Game[] = [
     icon: '🦫',
   },
   {
-    slug: 'maze-game',
-    name: 'Maze Game',
+    slug: 'maze-navigator',
+    name: 'Maze Navigator',
     difficulty: 1,
     estimatedTime: '2–3 hrs',
     description: 'Guide a ball through a maze. Learn colour detection and movement.',

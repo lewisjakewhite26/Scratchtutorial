@@ -9,7 +9,7 @@ interface StepNavProps {
 
 export function StepNav({ steps, currentStep, completedSteps, onStepClick }: StepNavProps) {
   return (
-    <div className="step-nav">
+    <nav className="step-nav" aria-label="Tutorial steps">
       <div className="step-nav__inner">
         {steps.map((step, index) => {
           const isActive = index === currentStep
@@ -21,15 +21,19 @@ export function StepNav({ steps, currentStep, completedSteps, onStepClick }: Ste
               type="button"
               onClick={() => onStepClick(index)}
               className={`step-pill ${isActive ? 'step-pill--active' : ''}`}
+              aria-current={isActive ? 'step' : undefined}
             >
               {isComplete && !isActive && <span className="step-pill__tick">✓</span>}
               <span>
                 {index + 1} · {step.label}
+                {step.estimatedMinutes != null && (
+                  <span className="step-pill__time">~{step.estimatedMinutes} min</span>
+                )}
               </span>
             </button>
           )
         })}
       </div>
-    </div>
+    </nav>
   )
 }

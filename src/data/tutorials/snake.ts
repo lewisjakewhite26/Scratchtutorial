@@ -99,7 +99,7 @@ end`,
       ],
       tasks: [
         { id: 'sn-10', text: 'Add clone behaviour blocks' },
-        { id: 'sn-11', text: 'Add game over when touching edge or itself' },
+        { id: 'sn-11', text: 'Add end-round logic when touching edge or itself' },
         { id: 'sn-12', text: 'Play until you reach a score of 10' },
       ],
     },

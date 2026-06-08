@@ -1,8 +1,8 @@
 import type { Tutorial } from '../../types'
-import { catchingGame } from './catching-game'
+import { fruitCatcher } from './fruit-catcher'
 import { flappyBird } from './flappy-bird'
 import { whackAMole } from './whack-a-mole'
-import { mazeGame } from './maze-game'
+import { mazeNavigator } from './maze-navigator'
 import { pong } from './pong'
 import { snake } from './snake'
 import { brickBreaker } from './brick-breaker'
@@ -12,10 +12,10 @@ import { towerDefence } from './tower-defence'
 import { geometryDash } from './geometry-dash'
 
 export const tutorials: Tutorial[] = [
-  catchingGame,
+  fruitCatcher,
   flappyBird,
   whackAMole,
-  mazeGame,
+  mazeNavigator,
   pong,
   snake,
   brickBreaker,

@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react'
 import { Navbar } from '../components/Navbar'
 import { GradientBlobs } from '../components/GradientBlobs'
-import { GameCard } from '../components/GameCard'
-import { games } from '../data/games'
+import { TutorialCard } from '../components/TutorialCard'
+import { catalogueEntries } from '../data/catalogue'
 import type { DifficultyFilter } from '../types'
 
 const FILTERS: { value: DifficultyFilter; label: string; colour?: string }[] = [
@@ -15,9 +15,9 @@ const FILTERS: { value: DifficultyFilter; label: string; colour?: string }[] = [
 export function Catalogue() {
   const [filter, setFilter] = useState<DifficultyFilter>('all')
 
-  const filteredGames = useMemo(() => {
-    if (filter === 'all') return games
-    return games.filter((g) => g.difficulty === filter)
+  const filteredEntries = useMemo(() => {
+    if (filter === 'all') return catalogueEntries
+    return catalogueEntries.filter((entry) => entry.difficulty === filter)
   }, [filter])
 
   return (
@@ -26,11 +26,11 @@ export function Catalogue() {
       <div className="page-inner">
         <Navbar variant="solid" />
 
-        <main className="container pt-28 pb-24">
+        <main id="main-content" className="container pt-28 pb-24">
           <header className="mb-12">
             <p className="section-label">Tutorial library</p>
             <h1 className="font-display page-title font-extrabold tracking-tight">
-              Choose your <span className="highlight-pill highlight-pill--blue">game</span>
+              Choose your <span className="highlight-pill highlight-pill--blue">tutorial</span>
             </h1>
             <p className="max-w-xl text-lg text-secondary">
               11 tutorials from beginner to expert. Pick your challenge.
@@ -60,8 +60,8 @@ export function Catalogue() {
           </div>
 
           <div className="catalogue-grid" key={String(filter)}>
-            {filteredGames.map((game, index) => (
-              <GameCard key={game.slug} game={game} index={index} />
+            {filteredEntries.map((entry, index) => (
+              <TutorialCard key={entry.slug} entry={entry} index={index} />
             ))}
           </div>
         </main>

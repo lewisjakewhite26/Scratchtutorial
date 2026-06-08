@@ -1,21 +1,29 @@
 import type { Step } from '../types'
 import { BlockCode } from './BlockCode'
+import { OpenScratchButton } from './OpenScratchButton'
+import { ScratchUiGuide } from './ScratchUiGuide'
 import { TaskItem } from './TaskItem'
 
 interface StepContentProps {
   step: Step
   isTaskComplete: (id: string) => boolean
   onToggleTask: (id: string) => void
+  isFirstStep?: boolean
 }
 
-export function StepContent({ step, isTaskComplete, onToggleTask }: StepContentProps) {
+export function StepContent({ step, isTaskComplete, onToggleTask, isFirstStep = false }: StepContentProps) {
   return (
     <article className="glass-card p-8 p-10-md">
-      <h2 className="font-display mb-5 text-2xl font-bold tracking-tight text-3xl-md">{step.title}</h2>
+      <div className="step-content__header">
+        <h2 className="font-display text-2xl font-bold tracking-tight text-3xl-md">{step.title}</h2>
+        <OpenScratchButton />
+      </div>
 
-      <div className="mb-8 leading-relaxed">
+      {isFirstStep && <ScratchUiGuide />}
+
+      <div className="tutorial-body mb-8">
         {step.explanation.split('\n\n').map((paragraph, i) => (
-          <p key={i} className="text-secondary" style={{ fontSize: '1.05rem', marginBottom: '1rem' }}>
+          <p key={i} className="text-secondary">
             {paragraph}
           </p>
         ))}
@@ -27,7 +35,9 @@ export function StepContent({ step, isTaskComplete, onToggleTask }: StepContentP
 
       {step.tasks.length > 0 && (
         <div className="mt-10">
-          <h3 className="font-display mb-4 text-lg font-bold">Your tasks</h3>
+          <h3 className="font-display mb-4 text-lg font-bold" style={{ fontSize: '1.25rem' }}>
+            Your tasks
+          </h3>
           <div className="task-list">
             {step.tasks.map((task) => (
               <TaskItem
@@ -42,11 +52,19 @@ export function StepContent({ step, isTaskComplete, onToggleTask }: StepContentP
         </div>
       )}
 
+      {step.youShouldSee && (
+        <p className="tutorial-you-should-see">
+          <strong>You should see…</strong> {step.youShouldSee}
+        </p>
+      )}
+
       <div className="save-point">
-        <span style={{ fontSize: '1.125rem' }} aria-hidden="true">💾</span>
+        <span style={{ fontSize: '1.25rem' }} aria-hidden="true">
+          💾
+        </span>
         <div>
           <strong className="font-semibold">Save point</strong>
-          <p className="m-0" style={{ marginTop: '0.125rem', opacity: 0.85 }}>
+          <p className="m-0" style={{ marginTop: '0.125rem' }}>
             Click the green flag to test. Make sure everything works before moving on.
           </p>
         </div>

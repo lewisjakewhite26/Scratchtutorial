@@ -82,7 +82,7 @@ end`,
       label: 'Lose',
       title: 'Lose a life when the ball falls',
       explanation:
-        'Create a Lives variable starting at 3. When the ball touches the bottom edge, lose a life and reset the ball. Game over when lives reach 0.',
+        'Create a Lives variable starting at 3. When the ball touches the bottom edge, lose a life and reset the ball. Stop all scripts when lives reach 0.',
       blocks: [
         {
           id: 'bb-lose',
@@ -101,7 +101,7 @@ end`,
       ],
       tasks: [
         { id: 'bb-8', text: 'Create a Lives variable' },
-        { id: 'bb-9', text: 'Add lose life and game over blocks' },
+        { id: 'bb-9', text: 'Add lose life and end-round blocks' },
         { id: 'bb-10', text: 'Clear all the bricks to win' },
       ],
     },

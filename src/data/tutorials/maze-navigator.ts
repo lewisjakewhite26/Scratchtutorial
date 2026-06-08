@@ -1,8 +1,8 @@
 import type { Tutorial } from '../../types'
 
-export const mazeGame: Tutorial = {
-  slug: 'maze-game',
-  name: 'Maze Game',
+export const mazeNavigator: Tutorial = {
+  slug: 'maze-navigator',
+  name: 'Maze Navigator',
   difficulty: 1,
   estimatedTime: '2–3 hrs',
   description: 'Guide a ball through a maze. Learn colour detection and movement.',
@@ -63,7 +63,7 @@ end`,
       label: 'Goal',
       title: 'Reach the finish',
       explanation:
-        'Add a green finish area at the end of the maze. When the ball touches green, you win. Show a message and stop the game.',
+        'Add a green finish area at the end of the maze. When the ball touches green, you win. Show a message and stop all scripts.',
       blocks: [
         {
           id: 'mg-goal',

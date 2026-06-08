@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
 import { Navbar } from '../components/Navbar'
 import { GradientBlobs } from '../components/GradientBlobs'
-import { HeroIcons } from '../components/HeroIcons'
+import { HeroStage } from '../components/HeroStage'
 
 const STEPS = [
   {
     number: '01',
-    title: 'Pick a game',
-    description: 'Choose from 11 tutorials, from easy catchers to expert tower defence.',
+    title: 'Pick a tutorial',
+    description: 'Choose from 11 tutorials, from easy starters to expert tower defence.',
     colour: 'var(--highlight-purple)',
   },
   {
@@ -18,8 +18,8 @@ const STEPS = [
   },
   {
     number: '03',
-    title: 'Build and play',
-    description: 'Finish your game, test it with the green flag, and share it with friends.',
+    title: 'Build and test',
+    description: 'Finish your project, test it with the green flag, and share it with friends.',
     colour: 'var(--highlight-pink)',
   },
 ]
@@ -31,18 +31,19 @@ export function Home() {
       <div className="page-inner">
         <Navbar variant="transparent" />
 
+        <main id="main-content">
         <section className="hero-section">
           <div className="hero-grid">
             <div>
-              <p className="section-label">Scratch tutorials for Y3–Y6</p>
+              <p className="section-label">Scratch coding tutorials</p>
               <h1 className="font-display hero-title font-extrabold tracking-tight">
-                Learn to build
+                Learn to code
                 <br />
-                real games in{' '}
+                real projects in{' '}
                 <span className="highlight-pill highlight-pill--purple">Scratch</span>
               </h1>
               <p className="hero-subtitle">
-                Step-by-step tutorials for Y3–Y6. Pick a game, follow the steps, build something brilliant.
+                Step-by-step tutorials for primary pupils. Pick a tutorial, follow the steps, build something brilliant.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/catalogue" className="btn btn-primary">
@@ -58,7 +59,7 @@ export function Home() {
                 </a>
               </div>
             </div>
-            <HeroIcons />
+            <HeroStage />
           </div>
         </section>
 
@@ -66,7 +67,7 @@ export function Home() {
           <div className="container">
             <p className="section-label text-center">How it works</p>
             <h2 className="font-display mb-14 text-center text-3xl font-bold">
-              Three steps to your first game
+              Three steps to your first project
             </h2>
             <div className="steps-grid">
               {STEPS.map((step) => (
@@ -89,13 +90,14 @@ export function Home() {
           <div className="cta-band container--cta mx-auto px-6 py-14 text-center">
             <h2 className="font-display mb-3 text-3xl font-bold">Ready to start?</h2>
             <p className="mb-8 text-secondary">
-              Pick a tutorial and build your first game today.
+              Pick a tutorial and build your first Scratch project today.
             </p>
             <Link to="/catalogue" className="btn btn-primary">
               Browse Tutorials
             </Link>
           </div>
         </section>
+        </main>
       </div>
     </div>
   )

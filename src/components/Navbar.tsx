@@ -26,9 +26,14 @@ export function Navbar({ variant = 'solid' }: NavbarProps) {
           <span className="show-sm">Mr White&apos;s Scratch Tutorials</span>
           <span className="hide-sm">Scratch Tutorials</span>
         </Link>
-        <Link to="/catalogue" className="btn btn-primary btn-sm no-underline">
-          Browse Tutorials
-        </Link>
+        <div className="navbar__links">
+          <Link to="/" className="navbar__link">
+            Home
+          </Link>
+          <Link to="/catalogue" className="btn btn-primary btn-sm no-underline">
+            Browse Tutorials
+          </Link>
+        </div>
       </div>
     </nav>
   )

@@ -75,9 +75,9 @@ end`,
     {
       id: 'crash',
       label: 'Crash',
-      title: 'Game over on collision',
+      title: 'End the round on collision',
       explanation:
-        'Create a Score variable that increases over time. If the player touches a spike, stop the game and show the final score.',
+        'Create a Score variable that increases over time. If the player touches a spike, stop all scripts and show the final score.',
       blocks: [
         {
           id: 'gd-crash',
@@ -87,7 +87,7 @@ forever
   change [Score v] by (1)
   wait (0.1) secs
   if <touching [Spike v] ?> then
-    say (join [Game over! Score: ] (Score)) for (2) secs
+    say (join [Finished! Score: ] (Score)) for (2) secs
     stop [all v]
   end
 end`,

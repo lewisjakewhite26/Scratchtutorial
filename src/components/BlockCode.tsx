@@ -5,9 +5,10 @@ interface BlockCodeProps {
   syntax: string
   inline?: boolean
   blockId?: string
+  scale?: number
 }
 
-export function BlockCode({ syntax, inline = false, blockId }: BlockCodeProps) {
+export function BlockCode({ syntax, inline = false, blockId, scale }: BlockCodeProps) {
   const ref = useRef<HTMLElement>(null)
   const [glowing, setGlowing] = useState(false)
 
@@ -17,7 +18,7 @@ export function BlockCode({ syntax, inline = false, blockId }: BlockCodeProps) {
 
     const options = {
       style: 'scratch3',
-      scale: inline ? 0.85 : 1.5,
+      scale: scale ?? (inline ? 0.85 : 1.5),
       inline,
       languages: ['en'] as string[],
     }
@@ -25,7 +26,7 @@ export function BlockCode({ syntax, inline = false, blockId }: BlockCodeProps) {
     const doc = scratchblocks.parse(syntax, options)
     const svg = scratchblocks.render(doc, options)
     scratchblocks.replace(el, svg, doc, options)
-  }, [syntax, inline])
+  }, [syntax, inline, scale])
 
   const handleClick = () => {
     setGlowing(true)

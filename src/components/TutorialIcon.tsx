@@ -1,15 +1,15 @@
 import type { ReactNode } from 'react'
 
-interface GameIconProps {
+interface TutorialIconProps {
   slug: string
   size?: 'sm' | 'md' | 'lg'
 }
 
 const GRADIENTS: Record<string, string> = {
-  'catching-game': 'linear-gradient(135deg, #f97316, #fb7185)',
+  'fruit-catcher': 'linear-gradient(135deg, #f97316, #fb7185)',
   'flappy-bird': 'linear-gradient(135deg, #38bdf8, #818cf8)',
   'whack-a-mole': 'linear-gradient(135deg, #fbbf24, #d97706)',
-  'maze-game': 'linear-gradient(135deg, #8b5cf6, #6366f1)',
+  'maze-navigator': 'linear-gradient(135deg, #8b5cf6, #6366f1)',
   pong: 'linear-gradient(135deg, #34d399, #14b8a6)',
   snake: 'linear-gradient(135deg, #22c55e, #84cc16)',
   'brick-breaker': 'linear-gradient(135deg, #f87171, #fb923c)',
@@ -20,7 +20,7 @@ const GRADIENTS: Record<string, string> = {
 }
 
 const ICONS: Record<string, ReactNode> = {
-  'catching-game': (
+  'fruit-catcher': (
     <svg viewBox="0 0 48 48" fill="none" className="h-full w-full">
       <ellipse cx="24" cy="36" rx="14" ry="5" fill="white" fillOpacity="0.9" />
       <circle cx="24" cy="18" r="10" fill="white" fillOpacity="0.95" />
@@ -44,7 +44,7 @@ const ICONS: Record<string, ReactNode> = {
       <ellipse cx="24" cy="26" rx="4" ry="2.5" fill="currentColor" className="text-slate-600" />
     </svg>
   ),
-  'maze-game': (
+  'maze-navigator': (
     <svg viewBox="0 0 48 48" fill="none" className="h-full w-full">
       <rect x="8" y="8" width="32" height="32" rx="4" stroke="white" strokeWidth="2.5" fill="none" strokeOpacity="0.6" />
       <path d="M16 8v12h8M24 20v8h8M16 28h8v12" stroke="white" strokeWidth="2.5" strokeOpacity="0.8" />
@@ -114,9 +114,9 @@ const ICONS: Record<string, ReactNode> = {
 
 const SIZES = { sm: 48, md: 64, lg: 80 }
 
-export function GameIcon({ slug, size = 'md' }: GameIconProps) {
+export function TutorialIcon({ slug, size = 'md' }: TutorialIconProps) {
   const px = SIZES[size]
-  const gradient = GRADIENTS[slug] ?? GRADIENTS['maze-game']
+  const gradient = GRADIENTS[slug] ?? GRADIENTS['maze-navigator']
 
   return (
     <div
@@ -135,6 +135,6 @@ export function GameIcon({ slug, size = 'md' }: GameIconProps) {
   )
 }
 
-export function getGameGradient(slug: string): string {
-  return GRADIENTS[slug] ?? GRADIENTS['maze-game']
+export function getTutorialIconGradient(slug: string): string {
+  return GRADIENTS[slug] ?? GRADIENTS['maze-navigator']
 }

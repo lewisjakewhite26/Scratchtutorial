@@ -15,6 +15,8 @@ export interface Step {
   explanation: string
   blocks: Block[]
   tasks: Task[]
+  estimatedMinutes?: number
+  youShouldSee?: string
 }
 
 export interface Tutorial {
@@ -34,7 +36,7 @@ export interface Tutorial {
   }
 }
 
-export interface Game {
+export interface CatalogueEntry {
   slug: string
   name: string
   difficulty: 1 | 2 | 3

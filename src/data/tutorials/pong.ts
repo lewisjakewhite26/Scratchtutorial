@@ -109,7 +109,7 @@ end`,
       tasks: [
         { id: 'po-7', text: 'Create score variables for both players' },
         { id: 'po-8', text: 'Add scoring and ball reset blocks' },
-        { id: 'po-9', text: 'Play a match to 5 points' },
+        { id: 'po-9', text: 'Run a practice round to 5 points' },
       ],
     },
   ],
